@@ -2,22 +2,37 @@
 import os
 import sys
 from sys import exit
+from utils.scatr import scatt
+from utils.scatrenc import scattenc
+from utils.embd import one
+from utils.embdenc import onenc
+from utils.retrv import retr
+from utils.retrvenc import retrenc
+from utils.clean import clean
+from utils.cleanenc import cleanenc
+
 
 
 
 def initialize():
+	if not os.path.isdir(os.path.join(os.path.dirname(os.path.realpath(__file__)),"utils/cache")):
+		os.mkdir(os.path.join(os.path.dirname(os.path.realpath(__file__)),"utils/cache"))
+
 	if os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),"defaultf.txt")):
 		f=open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"defaultf.txt"),"r")
 		default=f.read()
 	else:
 		f=open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"defaultf.txt"),"w")
 		f.write(os.path.dirname(os.path.realpath(__file__)))
-	if not os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),"files")):
-		f=open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"files"),"wb")
+
+	if not os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),"utils/cache/files")):
+		f=open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"utils/cache/files"),"wb")
 		f.close()
-	if not os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),"encfiles")):
-		f=open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"encfiles"),"wb")
+		
+	if not os.path.isfile(os.path.join(os.path.dirname(os.path.realpath(__file__)),"utils/cache/encfiles")):
+		f=open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"utils/cache/encfiles"),"wb")
 		f.close()
+	
 	
 
 initialize()
