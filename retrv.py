@@ -15,6 +15,15 @@ default=""
 
 
 
+def table(t):
+	print("\n[INFO]\n")
+	print("--------------------------------------")
+	print("| Missing Fragment\t|\tFile |")
+	print("--------------------------------------")
+
+	for key,value in t.items():
+		print(f"| {key}\t\t\t|\t{value} |")
+
 
 def retr(name,path):
 	des=""
